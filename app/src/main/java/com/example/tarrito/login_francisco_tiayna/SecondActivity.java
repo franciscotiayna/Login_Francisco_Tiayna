@@ -18,7 +18,7 @@ import io.realm.RealmResults;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
-public class SecondActivity extends AppCompatActivity implements RealmChangeListener<Trabajador>{
+public class SecondActivity extends AppCompatActivity implements RealmChangeListener<RealmResults<Trabajador>>{
 
     private ListView listView;
     private MyAdapter adapter;
@@ -47,7 +47,7 @@ public class SecondActivity extends AppCompatActivity implements RealmChangeList
     }
 
     @Override
-    public void onChange(RealmResults<Alumno> element) {
+    public void onChange(RealmResults<Trabajador> element) {
         adapter.notifyDataSetChanged();
     }
 
@@ -57,13 +57,6 @@ public class SecondActivity extends AppCompatActivity implements RealmChangeList
         realm.close();
         super.onDestroy();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
 
     private RealmResults<Trabajador> getAllTrabajador() {
         return realm.where(Trabajador.class).findAll();
@@ -81,9 +74,9 @@ public class SecondActivity extends AppCompatActivity implements RealmChangeList
             @Override
             public void execute(Realm realm) {
 
-                Trabajador p1 = new Trabajador("juanito", "123456789", "11111-1", 23, "calle siempre viva 555", "12345678", "gerente");
-                Trabajador p2 = new Trabajador("juanito", "123456789", "11111-1", 23, "calle siempre viva 555", "12345678", "gerente");
-                Trabajador p3 = new Trabajador("juanito", "123456789", "11111-1", 23, "calle siempre viva 555", "12345678", "gerente");
+                Trabajador p1 = new Trabajador("juanito", "123456789", "11111-1", "23", "calle siempre viva 555", "12345678", "gerente");
+                Trabajador p2 = new Trabajador("juanito", "123456789", "11111-1", "23", "calle siempre viva 555", "12345678", "gerente");
+                Trabajador p3 = new Trabajador("juanito", "123456789", "11111-1", "23", "calle siempre viva 555", "12345678", "gerente");
 
 
                 realm.copyToRealmOrUpdate(p1);

@@ -16,7 +16,7 @@ public class Trabajador  extends RealmObject{
     private String sueldobd;
     private String cargobd;
 
-    public Trabajador(String juanito, String passwordbd, String rutbd, int i, String direccionbd, String sueldobd, String gerente){}
+    public Trabajador(){}
 
     public Trabajador(String nombrebd, String passwordbd, String rutbd, String edadbd, String direccionbd, String sueldobd, String cargobd){
         this.id = MyAplication.trabajadorID.incrementAndGet();
